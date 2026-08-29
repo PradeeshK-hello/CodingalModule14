@@ -1,0 +1,18 @@
+import pandas as pd
+import statistics as stats
+data = pd.read_csv("Bestsellers with categories.csv")
+data.head(5)
+data.isnull().any()
+data.fillna("N/A")
+mean1 = data["User Rating"].mean()
+median1 = data["User Rating"].median()
+mode1 = stats.mode(data["User Rating"])
+mean2 = data["Price"].mean()
+median2 = data["Price"].median()
+mode2 = stats.mode(data["Price"])
+mean3 = data["Reviews"].mean()
+median3 = data["Reviews"].median()
+mode3 = stats.mode(data["Reviews"])
+print("M-M-M of User Rating - ",mean1,median1,mode1)
+print("M-M-M of Price - ",mean2,median2,mode2)
+print("M-M-M of Reviews - ",mean3,median3,mode3)
