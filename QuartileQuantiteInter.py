@@ -1,0 +1,20 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns 
+data = pd.read_csv("Bestsellers with categories.csv")
+data.isnull().any()
+ninety_percent_value = data["Price"].quantile(0.9)
+q1 = data["Price"].quantile(0.25)
+q2 = data["Price"].quantile(0.50)
+q3 = data["Price"].quantile(0.75)
+print("First Quartile for Price - ",q1)
+print("Second Quartile for Price - ",q2)
+print("Third Quartile for Price - ",q3)
+q1 = data["User Rating"].quantile(0.25)
+q2 = data["User Rating"].quantile(0.50)
+q3 = data["User Rating"].quantile(0.75)
+print("First Quartile for User Rating - ",q1)
+print("Second Quartile for User Rating - ",q2)
+print("Third Quartile for User Rating - ",q3)
+sns.boxplot(y=data["Price"],x=data["User Rating"])
+plt.show()
